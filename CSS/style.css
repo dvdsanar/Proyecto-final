@@ -2,6 +2,7 @@ html,
 body {
   height: 100%;
 }
+/*Estilos id*/
 #contenedor {
   display: flex;
   flex-direction: row;
@@ -10,19 +11,44 @@ body {
 #col1 {
   background-color: #80801f;
   flex: 1;
-  width: 15%;
+  width: 18%;
   padding: 10px;
 }
 #col2 {
-  border: black solid 1px;
-  width: 85%;
+  width: 82%;
 }
-h1 {
+#cabecera {
+  border: gray solid 1px;
+  padding: 0.5%;
+  display: flex;
+  justify-content: space-between;
+}
+/*Estilos etiquetas*/
+h1,
+h2,
+h3 {
   font-family: "Dancing Script", cursive;
   color: white;
 }
-p {
+p,
+label {
   font-family: "Dancing Script", cursive;
   font-size: 25px;
-  color: white;
+}
+/*estilos clases*/
+.caja1 {
+  margin-bottom: 20%;
+}
+.float {
+  float: right;
+}
+.buscador {
+  float: right;
+  border: none;
+  outline: none;
+}
+.divSearch {
+  border: black solid 1px;
+  padding: 0.5%;
+  border-radius: 10px;
 }
