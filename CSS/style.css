@@ -1,0 +1,28 @@
+html,
+body {
+  height: 100%;
+}
+#contenedor {
+  display: flex;
+  flex-direction: row;
+  min-height: 100%;
+}
+#col1 {
+  background-color: #80801f;
+  flex: 1;
+  width: 15%;
+  padding: 10px;
+}
+#col2 {
+  border: black solid 1px;
+  width: 85%;
+}
+h1 {
+  font-family: "Dancing Script", cursive;
+  color: white;
+}
+p {
+  font-family: "Dancing Script", cursive;
+  font-size: 25px;
+  color: white;
+}
