@@ -12,7 +12,7 @@ body {
   background-color: #80801f;
   flex: 1;
   width: 18%;
-  padding: 10px;
+  padding: 0.5em;
 }
 #col2 {
   width: 82%;
@@ -33,7 +33,7 @@ h3 {
 p,
 label {
   font-family: "Dancing Script", cursive;
-  font-size: 25px;
+  font-size: 1.5em;
 }
 /*estilos clases*/
 .caja1 {
@@ -48,7 +48,7 @@ label {
   outline: none;
 }
 .divSearch {
-  border: black solid 1px;
+  border: black solid 0.05em;
   padding: 0.5%;
-  border-radius: 10px;
+  border-radius: 0.5em;
 }
