@@ -51,6 +51,12 @@ label {
   font-family: "Dancing Script", cursive;
   font-size: 1.5em;
 }
+ul {
+  list-style: none;
+  font-family: "Dancing Script", cursive;
+  color: white;
+  font-size: 1.25em;
+}
 /*estilos clases*/
 .caja1 {
   margin-bottom: 20%;
