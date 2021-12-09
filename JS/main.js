@@ -1,4 +1,6 @@
 let canales = [];
+let mensajes = [];
+let historial = [];
 
 function abrirCanal() {
   var nombrecanal = prompt("Introduce el nombre del canal");
@@ -8,6 +10,7 @@ function abrirCanal() {
     var lista = document.getElementById("listaCanales");
     var celda = document.createElement("li");
     celda.setAttribute("id", nombrecanal);
+    celda.setAttribute("style", "cursor: pointer");
     celda.onclick = function () {
       cargarCabecera(celda.id);
     };
@@ -19,7 +22,6 @@ function abrirCanal() {
 function cargarCabecera(parametro1) {
   document.getElementById("cabeceraGrupo").innerHTML = parametro1;
 }
-let mensajes = [];
 function abrirMensaje() {
   var dMensaje = prompt("Introduce al usuario que quieres escribir");
   if (dMensaje != null && dMensaje != "") {
@@ -48,5 +50,20 @@ function recorrerArray() {
     (element) => (document.getElementById("prueba").innerHTML = element)
   );*/
 }
-
+function teclaPulsada(e) {
+  if (typeof e == "undefined" && window.event) {
+    e = window.event;
+  }
+  var barrTexto = document.getElementById("inputchat").value;
+  if (e.keyCode == 13) {
+    historial.push(barrTexto);
+    historial.forEach((element) => console.log(element));
+    var lista = document.getElementById("historico");
+    var celda = document.createElement("li");
+    var texto = document.createTextNode(historial[historial.length - 1]);
+    lista.appendChild(celda);
+    celda.appendChild(texto);
+    document.getElementById("inputchat").value = "";
+  }
+}
 window.onload = recorrerArray();

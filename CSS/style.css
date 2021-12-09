@@ -39,6 +39,10 @@ body {
   width: 95%;
   margin-bottom: 1em;
 }
+#historico {
+  font-family: "Dancing Script", cursive;
+  color: black;
+}
 /*Estilos etiquetas*/
 h1,
 h2,

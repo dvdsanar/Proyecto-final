@@ -55,9 +55,16 @@
             <input type="search" class="buscador" placeholder="Buscar..." />
           </div>
         </div>
-        <div id="historial" class="margenes">Caja del medio</div>
+        <div id="historial" class="margenes">
+          <ul id="historico"></ul>
+        </div>
         <div id="escritura" class="margenes">
-          <input type="text" id="inputchat" placeholder="Mensaje" />
+          <input
+            type="text"
+            id="inputchat"
+            placeholder="Mensaje"
+            onkeypress="teclaPulsada(event)"
+          />
         </div>
       </div>
     </div>
