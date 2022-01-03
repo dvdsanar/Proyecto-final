@@ -1,7 +1,20 @@
 let canales = [];
 let mensajes = [];
 let historial = [];
+let usuario = "David Sánchez Ariza";
+let hora = new Date();
+let registroHora =
+  " " +
+  hora.getDate() +
+  "/" +
+  hora.getMonth() +
+  " " +
+  hora.getHours() +
+  ":" +
+  hora.getMinutes();
 
+document.getElementById("usuario").innerHTML = usuario;
+document.getElementById("registroHora").innerHTML = registroHora;
 function abrirCanal() {
   var nombrecanal = prompt("Introduce el nombre del canal");
   if (nombrecanal != null && nombrecanal != "") {
@@ -49,12 +62,17 @@ function recorrerArray() {
   /* canales.forEach(
     (element) => (document.getElementById("prueba").innerHTML = element)
   );*/
-}
+} //Histórico de mensajes
 function teclaPulsada(e) {
   if (typeof e == "undefined" && window.event) {
     e = window.event;
   }
-  var barrTexto = document.getElementById("inputchat").value;
+  var barrTexto =
+    usuario +
+    " : " +
+    document.getElementById("inputchat").value +
+    ". " +
+    registroHora;
   if (e.keyCode == 13) {
     historial.push(barrTexto);
     historial.forEach((element) => console.log(element));
