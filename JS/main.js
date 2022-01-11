@@ -59,6 +59,7 @@ function abrirCanal() {
 
 function cargarCabecera(parametro1) {
   document.getElementById("cabeceraGrupo").innerHTML = parametro1;
+  document.getElementById("cabeceraGrupo").value = parametro1;
 }
 function abrirMensaje() {
   var dMensaje = prompt("Introduce al usuario que quieres escribir");
@@ -98,7 +99,10 @@ function teclaPulsada(e) {
     document.getElementById("inputchat").value +
     ". " +
     registroHora;
-  if (e.keyCode == 13) {
+  if (
+    e.keyCode == 13 &&
+    document.getElementById("cabeceraGrupo").innerHTML != "Selecciona un canal"
+  ) {
     historial.push(barrTexto);
     historial.forEach((element) => console.log(element));
     var lista = document.getElementById("historico");
