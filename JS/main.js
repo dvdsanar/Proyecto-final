@@ -15,11 +15,12 @@ let registroHora =
 
 document.getElementById("usuario").innerHTML = usuario;
 document.getElementById("registroHora").innerHTML = registroHora;
+/*Función para crear Strings dentro del array de canales
 function abrirCanal() {
   var nombrecanal = prompt("Introduce el nombre del canal");
   if (nombrecanal != null && nombrecanal != "") {
     canales.push(nombrecanal);
-    canales.forEach((element) => console.log(element));
+    canales.forEach((element) => console.log(element)); //solo para que se muestre en consola
     var lista = document.getElementById("listaCanales");
     var celda = document.createElement("li");
     celda.setAttribute("id", nombrecanal);
@@ -31,7 +32,31 @@ function abrirCanal() {
     lista.appendChild(celda);
     celda.appendChild(texto);
   }
+}*/
+/*Función para crear objetos dentro del array de canales*/
+function abrirCanal() {
+  var nombrecanal = prompt("Introduce el nombre del canal");
+  if (nombrecanal != null && nombrecanal != "") {
+    var canal = {
+      titulo: nombrecanal,
+      date: registroHora,
+      mensajes: [],
+    };
+    canales.push(canal);
+    canales.forEach((element) => console.log(element));
+    var lista = document.getElementById("listaCanales");
+    var celda = document.createElement("li");
+    celda.setAttribute("id", canal.titulo);
+    celda.setAttribute("style", "cursor: pointer");
+    celda.onclick = function () {
+      cargarCabecera(celda.id);
+    };
+    var texto = document.createTextNode(canal.titulo);
+    lista.appendChild(celda);
+    celda.appendChild(texto);
+  }
 }
+
 function cargarCabecera(parametro1) {
   document.getElementById("cabeceraGrupo").innerHTML = parametro1;
 }
