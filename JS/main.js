@@ -50,6 +50,7 @@ function abrirCanal() {
     celda.setAttribute("style", "cursor: pointer");
     celda.onclick = function () {
       cargarCabecera(celda.id);
+      canales.map(mostrarMensaje);
     };
     var texto = document.createTextNode(canal.titulo);
     lista.appendChild(celda);
@@ -59,7 +60,6 @@ function abrirCanal() {
 
 function cargarCabecera(parametro1) {
   document.getElementById("cabeceraGrupo").innerHTML = parametro1;
-  document.getElementById("cabeceraGrupo").value = parametro1;
 }
 function abrirMensaje() {
   var dMensaje = prompt("Introduce al usuario que quieres escribir");
@@ -93,24 +93,48 @@ function teclaPulsada(e) {
   if (typeof e == "undefined" && window.event) {
     e = window.event;
   }
+
+  if (
+    e.keyCode == 13 &&
+    document.getElementById("cabeceraGrupo").innerHTML != "Selecciona un canal"
+  ) {
+    canales.map(guardarMensaje);
+  }
+}
+function guardarMensaje(value) {
   var barrTexto =
     usuario +
     " : " +
     document.getElementById("inputchat").value +
     ". " +
     registroHora;
-  if (
-    e.keyCode == 13 &&
-    document.getElementById("cabeceraGrupo").innerHTML != "Selecciona un canal"
-  ) {
-    historial.push(barrTexto);
-    historial.forEach((element) => console.log(element));
+  if (value.titulo == document.getElementById("cabeceraGrupo").innerHTML) {
+    value.mensajes.push(barrTexto);
+    value.mensajes.forEach((element) => console.log(element));
+    canales.forEach((element) => console.log(element));
+    document.getElementById("inputchat").value = "";
+    mostrarMensaje(value);
+  }
+}
+function mostrarMensaje(value) {
+  if (value.titulo == document.getElementById("cabeceraGrupo").innerHTML) {
     var lista = document.getElementById("historico");
     var celda = document.createElement("li");
-    var texto = document.createTextNode(historial[historial.length - 1]);
+    var texto = document.createTextNode(value.mensajes.length);
     lista.appendChild(celda);
     celda.appendChild(texto);
-    document.getElementById("inputchat").value = "";
   }
 }
 window.onload = recorrerArray();
+
+/*function mostrarMensaje(value) {
+  if (value.titulo == document.getElementById("cabeceraGrupo").innerHTML) {
+    var lista = document.getElementById("historico");
+    var celda = document.createElement("li");
+    var texto = document.createTextNode(
+      value.mensajes[value.mensajes.length - 1]
+    );
+    lista.appendChild(celda);
+    celda.appendChild(texto);
+  }
+}*/
