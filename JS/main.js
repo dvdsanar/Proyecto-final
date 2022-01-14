@@ -98,7 +98,7 @@ function teclaPulsada(e) {
     e.keyCode == 13 &&
     document.getElementById("cabeceraGrupo").innerHTML != "Selecciona un canal"
   ) {
-    canales.map(guardarMensaje);
+    canales.map(guardarUltimoMensaje);
   }
 }
 function guardarMensaje(value) {
@@ -119,22 +119,40 @@ function guardarMensaje(value) {
 function mostrarMensaje(value) {
   if (value.titulo == document.getElementById("cabeceraGrupo").innerHTML) {
     var lista = document.getElementById("historico");
-    var celda = document.createElement("li");
-    var texto = document.createTextNode(value.mensajes.length);
-    lista.appendChild(celda);
-    celda.appendChild(texto);
+    while (lista.hasChildNodes()) {
+      lista.removeChild(lista.firstChild);
+    }
+    value.mensajes.map(rellenarArrayMensajes);
+  }
+}
+function rellenarArrayMensajes(value) {
+  var lista = document.getElementById("historico");
+  var celda = document.createElement("li");
+  var texto = document.createTextNode(value);
+  lista.appendChild(celda);
+  celda.appendChild(texto);
+}
+function guardarUltimoMensaje(value) {
+  var barrTexto =
+    usuario +
+    " : " +
+    document.getElementById("inputchat").value +
+    ". " +
+    registroHora;
+  if (value.titulo == document.getElementById("cabeceraGrupo").innerHTML) {
+    value.mensajes.push(barrTexto);
+    value.mensajes.forEach((element) => console.log(element));
+    canales.forEach((element) => console.log(element));
+    document.getElementById("inputchat").value = "";
+    if (value.titulo == document.getElementById("cabeceraGrupo").innerHTML) {
+      var lista = document.getElementById("historico");
+      var celda = document.createElement("li");
+      var texto = document.createTextNode(
+        value.mensajes[value.mensajes.length - 1]
+      );
+      lista.appendChild(celda);
+      celda.appendChild(texto);
+    }
   }
 }
 window.onload = recorrerArray();
-
-/*function mostrarMensaje(value) {
-  if (value.titulo == document.getElementById("cabeceraGrupo").innerHTML) {
-    var lista = document.getElementById("historico");
-    var celda = document.createElement("li");
-    var texto = document.createTextNode(
-      value.mensajes[value.mensajes.length - 1]
-    );
-    lista.appendChild(celda);
-    celda.appendChild(texto);
-  }
-}*/
