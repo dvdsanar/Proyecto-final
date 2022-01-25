@@ -9,3 +9,5 @@ De este modo tendremos varios canales con sus mensajes cada uno.
 Al hacer click en cada uno de los canales aparecerá el listado de mensajes que tenemos en cada uno de los canales.
 Al igual que en los canales podemos añadir personas para mandar mensajes directos a dicha persona y en el futuro se le podrá dar funcionalidad para que sea una comunicación directa con esa persona,
 tratando los mensajes directos como canales en los que solo el emisor y el receptor sean los que puedan ver dicha conversación.
+El botón "Buscar" de la esquina superior derecha nos permite buscar en que canales tenemos la cadena de letras que necesitemos, y el programa nos devolverá en que canal y que 
+mensaje o mensajes tienen la cadena de letras buscadas. El programa distingue entre mayúsculas y minúsculas y si la cadena de letras está seguida o no.
