@@ -3,6 +3,7 @@ let mensajes = [];
 let historial = [];
 let usuario = "David Sánchez Ariza";
 let hora = new Date();
+let textoBusqueda = "";
 let registroHora =
   " " +
   hora.getDate() +
@@ -12,6 +13,8 @@ let registroHora =
   hora.getHours() +
   ":" +
   hora.getMinutes();
+let palabraEncontrada = "";
+let palabrasEncontradas = [];
 
 document.getElementById("usuario").innerHTML = usuario;
 document.getElementById("registroHora").innerHTML = registroHora;
@@ -153,6 +156,39 @@ function guardarUltimoMensaje(value) {
       lista.appendChild(celda);
       celda.appendChild(texto);
     }
+  }
+}
+//buscador página
+function buscadorGlobal(e) {
+  if (typeof e == "undefined" && window.event) {
+    e = window.event;
+  }
+  if (
+    e.keyCode == 13 &&
+    document.getElementById("cabeceraGrupo").innerHTML != "Selecciona un canal"
+  ) {
+    textoBusqueda = document.getElementById("busqueda").value;
+    canales.map(encontrarPalabra);
+    //alert(textoBusqueda);
+  }
+}
+function encontrarPalabra(value) {
+  palabraEncontrada = value.mensajes.find(buscarPalabra);
+  if (palabrasEncontradas.length > 0) {
+    swal(
+      "Mensaje encontrado en " +
+        value.titulo +
+        ": \n" +
+        palabrasEncontradas.join("\n")
+    );
+    palabrasEncontradas = [];
+  }
+}
+function buscarPalabra(palabra) {
+  if (palabra.includes(textoBusqueda)) {
+    //alert(palabra);
+    palabrasEncontradas.push(palabra);
+    //return palabra;
   }
 }
 window.onload = recorrerArray();

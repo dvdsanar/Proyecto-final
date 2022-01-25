@@ -16,6 +16,7 @@
       src="https://kit.fontawesome.com/a25dff47bb.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
   <body>
     <div id="contenedor">
@@ -52,7 +53,13 @@
           <label id="cabeceraGrupo">Selecciona un canal</label>
           <div class="divSearch">
             <i class="fas fa-search"></i>
-            <input type="search" class="buscador" placeholder="Buscar..." />
+            <input
+              type="search"
+              class="buscador"
+              placeholder="Buscar..."
+              id="busqueda"
+              onkeypress="buscadorGlobal(event)"
+            />
           </div>
         </div>
         <div id="historial" class="margenes">

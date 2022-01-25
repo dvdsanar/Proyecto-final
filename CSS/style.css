@@ -26,10 +26,12 @@ body {
   justify-content: space-between;
 }
 #historial {
-  height: 89%;
+  height: 57em;
+  overflow-y: scroll;
+  overflow: auto;
 }
 #escritura {
-  height: 5%;
+  height: 2.6em;
   display: flex;
   justify-content: center;
 }
